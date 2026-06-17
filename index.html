@@ -39,7 +39,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            padding: 20px 10%;
+            padding: 20px 5%;
             background-color: rgba(255, 255, 255, 0.9);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             display: flex;
@@ -50,7 +50,7 @@
         }
 
         header.scrolled {
-            padding: 15px 10%;
+            padding: 15px 5%;
             background-color: rgba(255, 255, 255, 0.98);
         }
 
@@ -456,6 +456,178 @@
             transition: width 1.5s ease;
         }
 
+        /* Experience Section */
+        .experience {
+            background-color: var(--light-color);
+        }
+
+        .experience-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .experience-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            display: flex;
+            gap: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            align-items: flex-start;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .experience-card.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .experience-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-logo {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            transition: transform 0.3s ease;
+            display: block;
+            background: white;
+        }
+
+        .experience-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 5px;
+        }
+
+        .experience-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .experience-content {
+            flex-grow: 1;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .experience-header h3 {
+            font-size: 22px;
+            color: var(--dark-color);
+            font-weight: 600;
+        }
+
+        .experience-duration {
+            font-size: 14px;
+            color: var(--primary-color);
+            font-weight: 500;
+            background: rgba(52, 152, 219, 0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+
+        .experience-role {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .experience-project {
+            margin-bottom: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .experience-project h5 {
+            font-size: 16px;
+            color: var(--dark-color);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .experience-project-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .experience-project-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .experience-project-link:hover {
+            color: var(--accent-color);
+            text-shadow: 0 0 8px rgba(231, 76, 60, 0.3);
+        }
+
+        .experience-project-link:hover::after {
+            width: 100%;
+            background-color: var(--accent-color);
+        }
+
+        .experience-project p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+
+        .experience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .experience-tag {
+            background-color: #e0e0e0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .experience-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 20px;
+            }
+            .experience-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .experience-logo {
+                margin-bottom: 10px;
+            }
+            .experience-tags {
+                justify-content: center;
+            }
+        }
+
         /* Projects Section */
         .projects-container {
             display: grid;
@@ -675,12 +847,16 @@
 
         /* Achievements Section */
         .achievements-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 30px;
         }
 
         .achievement-card {
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
             background-color: white;
             border-radius: 10px;
             padding: 30px;
@@ -1364,6 +1540,52 @@
             background-color: #333;
         }
 
+        /* Experience Section */
+        body.dark-mode .experience-card {
+            background-color: #1e1e1e;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        body.dark-mode .experience-logo {
+            border-color: #333;
+            background: #fff;
+        }
+
+        body.dark-mode .experience-header h3,
+        body.dark-mode .experience-project h5 {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .experience-project-link {
+            color: #4dabf7;
+        }
+
+        body.dark-mode .experience-project-link::after {
+            background-color: #4dabf7;
+        }
+
+        body.dark-mode .experience-project-link:hover {
+            color: #ff6b6b;
+            text-shadow: 0 0 8px rgba(255, 107, 107, 0.4);
+        }
+
+        body.dark-mode .experience-project-link:hover::after {
+            background-color: #ff6b6b;
+        }
+
+        body.dark-mode .experience-project p {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .experience-tag {
+            background-color: #333;
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode .experience-project {
+            border-top-color: #333;
+        }
+
         /* Projects Section */
         body.dark-mode .project-card {
             background-color: #1e1e1e;
@@ -1673,6 +1895,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#achievements">Achievements</a></li>
@@ -1753,7 +1976,7 @@
                         <p>B.Tech Computer Science and Enginnering</p>
                     </div>
                 </div>
-                <a href="https://drive.google.com/file/d/1owi1j8mf-BF5tXqHrSoYsPteX_gvYDHV/view?usp=sharing"
+                <a href="https://drive.google.com/file/d/1ia9qA1p5NaMym-9EndEmaqdeuaU-DLZx/view?usp=drive_link"
                     class="download-cv">Download Resume</a>
             </div>
         </div>
@@ -2044,6 +2267,57 @@
         </div>
     </section>
 
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="section-title">
+            <h2>My <span>Experience</span></h2>
+        </div>
+        <div class="experience-container">
+            <div class="experience-card">
+                <a href="https://roughnote.org/home.html" target="_blank" rel="noopener noreferrer" class="experience-logo">
+                    <img src="https://media.theirstack.com/company/logo/domain/roughnote.org.jpeg" alt="Rough Note Logo">
+                </a>
+                <div class="experience-content">
+                    <div class="experience-header">
+                        <h3>Rough Note</h3>
+                        <span class="experience-duration">May 2026 – Present</span>
+                    </div>
+                    <h4 class="experience-role">Web Developer Intern</h4>
+                    
+                    <div class="experience-project">
+                        <h5>Project: <a href="https://velvetpearl.in/" target="_blank" rel="noopener noreferrer" class="experience-project-link">Velvet Pearl</a></h5>
+                        <p>Developed and maintained "Velvet Pearl", a travel and booking website with responsive UI, booking workflows, and modern web features. Worked on frontend development, UI improvements, and backend integration.</p>
+                    </div>
+                    
+                    <div class="experience-tags">
+                        <span class="experience-tag">HTML</span>
+                        <span class="experience-tag">CSS</span>
+                        <span class="experience-tag">JavaScript</span>
+                        <span class="experience-tag">React.js</span>
+                        <span class="experience-tag">PHP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            // Animate experience card on scroll (isolated to avoid touching global JS)
+            window.addEventListener('load', () => {
+                const expCard = document.querySelector('.experience-card');
+                if (!expCard) return;
+                
+                const checkScroll = () => {
+                    const pos = expCard.getBoundingClientRect().top;
+                    if (pos < window.innerHeight - 100) {
+                        expCard.classList.add('animated');
+                    }
+                };
+                
+                window.addEventListener('scroll', checkScroll);
+                checkScroll(); // Check on load
+            });
+        </script>
+    </section>
+
     <!-- Projects Section -->
     <section class="projects" id="projects">
         <div class="section-title">
@@ -2135,6 +2409,31 @@
                     </div>
                 </div>
             </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnVbRUpVoU4BwVvaLdGZPG6m-Vl8doYy0gy9L9QzIb8QNsOxleVxnbuK4&s=10"
+                        alt="Solar-Powered Vehicle">
+                </div>
+                <div class="project-content">
+                    <h3>CertiFlex</h3>
+                    <p>CertiFlex is a blockchain-based certificate generation and verification system that enables secure issuance, storage, and validation of academic certificates. It uses IPFS for decentralized storage and blockchain technology to ensure authenticity, transparency, and tamper-proof verification while reducing the risk of certificate forgery.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                        <span class="project-tag">JavaScript</span>
+                        <span class="project-tag">Blockchain</span>
+                        <span class="project-tag">Solidity</span>
+                        <span class="project-tag">IPFS</span>
+
+                    </div>
+                    <div class="project-links">
+                       
+                        <a href="https://github.com/anillBhoi/final-year-project.git" class="project-link github"><i
+                                class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+            
 
         </div>
     </section>
@@ -2212,7 +2511,7 @@
             </div>
             <div class="certificate-card">
                 <div class="certificate-image">
-                    <img src="https://techblog.smc.it/static/c5256a11117134b1d5f3bd35c479db40/a41d1/ml.jpg"
+                    <img src="https://media.istockphoto.com/id/966248982/photo/robot-with-education-hud.jpg?s=612x612&w=0&k=20&c=9eoZYRXNZsuU3edU87PksxN4Us-c9rB6IR7U_IGZ-U8="
                         alt="Machine Learning ">
                 </div>
                 <div class="certificate-content">
