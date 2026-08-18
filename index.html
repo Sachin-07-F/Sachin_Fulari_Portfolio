@@ -559,6 +559,10 @@
             font-weight: 600;
         }
 
+        .experience-project-name {
+            color: var(--primary-color);
+        }
+
         .experience-project-link {
             color: var(--primary-color);
             text-decoration: none;
@@ -1556,6 +1560,7 @@
             color: #e0e0e0;
         }
 
+        body.dark-mode .experience-project-name,
         body.dark-mode .experience-project-link {
             color: #4dabf7;
         }
@@ -1880,11 +1885,354 @@
                     rgba(0, 0, 0, 0.4),
                     transparent);
         }
+
+        /* ------------------------------------------- */
+        /* VISUAL POLISH OVERRIDES - GLASS & BG        */
+        /* ------------------------------------------- */
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Background - Premium Atmospheric Gradient */
+        body {
+            background-color: #f2f5f8 !important;
+            background-image: 
+                radial-gradient(circle at 10% 20%, #e1edf8 0%, transparent 55%),
+                radial-gradient(circle at 90% 40%, #e8e2f2 0%, transparent 55%),
+                radial-gradient(circle at 50% 90%, #f2eae4 0%, transparent 55%) !important;
+            background-attachment: fixed !important;
+            position: relative;
+        }
+        
+        /* Completely hide old blob elements */
+        body::before, body::after {
+            display: none !important;
+        }
+        
+        /* Dark Mode Background - Premium Deep Cool Neutral counterpart */
+        body.dark-mode {
+            background-color: #0B0E14 !important;
+            background-image: 
+                radial-gradient(circle at 20% 0%, #121822 0%, transparent 60%),
+                radial-gradient(circle at 80% 40%, #16131F 0%, transparent 60%),
+                radial-gradient(circle at 40% 100%, #171513 0%, transparent 60%) !important;
+            background-attachment: fixed !important;
+        }
+
+        /* Navbar Real Glass */
+        header {
+            background: rgba(255, 255, 255, 0.22) !important;
+            backdrop-filter: blur(24px) saturate(160%) !important;
+            -webkit-backdrop-filter: blur(24px) saturate(160%) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.35) !important;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05) !important;
+        }
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.28) !important;
+            backdrop-filter: blur(24px) saturate(160%) !important;
+            -webkit-backdrop-filter: blur(24px) saturate(160%) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4) !important;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08) !important;
+        }
+        body.dark-mode #header, body.dark-mode header {
+            background: rgba(20, 20, 20, 0.4) !important;
+            backdrop-filter: blur(24px) saturate(160%) !important;
+            -webkit-backdrop-filter: blur(24px) saturate(160%) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        }
+
+        /* Existing Cards - Glass Surface */
+        .skill-category, 
+        .experience-card, 
+        .project-card, 
+        .timeline-content, 
+        .achievement-card, 
+        .certificate-card, 
+        .hero-image {
+            background: rgba(255, 255, 255, 0.10) !important;
+            backdrop-filter: blur(12px) saturate(140%) !important;
+            -webkit-backdrop-filter: blur(12px) saturate(140%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.55) !important;
+            box-shadow: 0 8px 30px rgba(30, 50, 80, 0.06) !important;
+        }
+
+        body.dark-mode .skill-category, 
+        body.dark-mode .experience-card, 
+        body.dark-mode .project-card, 
+        body.dark-mode .timeline-content, 
+        body.dark-mode .achievement-card, 
+        body.dark-mode .certificate-card, 
+        body.dark-mode .hero-image {
+            background: rgba(20, 25, 35, 0.10) !important;
+            backdrop-filter: blur(16px) saturate(150%) !important;
+            -webkit-backdrop-filter: blur(16px) saturate(150%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.20) !important;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.10) !important;
+        }
+
+        /* Contact Form Transparency */
+        .contact-form,
+        body.dark-mode .contact-form {
+            background: transparent !important;
+            box-shadow: none !important;
+            border: none !important;
+            backdrop-filter: none !important;
+        }
+
+        /* Section containers transparency to see glow */
+        .skills, .experience, .projects, .education, .achievements, .certificates, .contact {
+            background: transparent !important;
+            background-color: transparent !important;
+        }
+        body.dark-mode .skills, 
+        body.dark-mode .experience, 
+        body.dark-mode .projects, 
+        body.dark-mode .education, 
+        body.dark-mode .achievements, 
+        body.dark-mode .certificates, 
+        body.dark-mode .contact {
+            background: transparent !important;
+            background-color: transparent !important;
+        }
+
+        /* Mobile Dark Mode Navbar Text Contrast Fix */
+        @media (max-width: 768px) {
+            body.dark-mode nav ul li a {
+                color: #26384D !important;
+            }
+        }
+        /* ------------------------------------------- */
+        /* BACKGROUND DECORATIONS (LINE-ART)           */
+        /* ------------------------------------------- */
+        .bg-decoration-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-svg {
+            position: absolute;
+            color: #1a2530; /* Dark color for light mode */
+            opacity: 0.05; /* Light mode opacity ~5% */
+            transition: opacity 0.5s ease, color 0.5s ease;
+        }
+
+        body.dark-mode .bg-svg {
+            color: #b0c4de; /* Subtle cool blue/gray */
+            opacity: 0.08; /* Dark mode opacity ~8% */
+        }
+
+        /* Sizing classes */
+        .icon-sm {
+            width: 45px;
+            height: 45px;
+        }
+        
+        .icon-md {
+            width: 80px;
+            height: 80px;
+        }
+
+        /* Base opacity fine-tuning */
+        .bg-svg {
+            position: absolute;
+            color: #1a2530; 
+            opacity: 0.035; /* Faint in light mode (~3-6%) */
+            transition: opacity 0.5s ease, color 0.5s ease;
+        }
+        
+        body.dark-mode .bg-svg {
+            color: #b0c4de; 
+            opacity: 0.07; /* Faint in dark mode (~5-9%) */
+        }
+
+        /* Hide scaling elements cleanly on mobile to prevent clutter */
+        @media (max-width: 768px) {
+            .bg-svg { opacity: 0.02; }
+            body.dark-mode .bg-svg { opacity: 0.04; }
+            .icon-md { width: 50px; height: 50px; }
+            .icon-sm { width: 35px; height: 35px; }
+        }
     </style>
 </head>
 
 <body>
-    <!-- Header -->
+    <!-- Abstract Background Technology Line-Art -->
+    <div class="bg-decoration-layer">
+        <!-- Reusable SVGs definitions -->
+        <svg width="0" height="0" style="display: none;">
+            <defs>
+                <g id="icon-laptop" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="15" y="25" width="70" height="40" rx="4"/>
+                    <path d="M10 70 L90 70 L85 75 L15 75 Z"/>
+                    <line x1="40" y1="70" x2="60" y2="70"/>
+                </g>
+                <g id="icon-keyboard" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="10" y="30" width="80" height="40" rx="4"/>
+                    <rect x="20" y="40" width="10" height="10"/>
+                    <rect x="35" y="40" width="10" height="10"/>
+                    <rect x="50" y="40" width="10" height="10"/>
+                    <rect x="65" y="40" width="10" height="10"/>
+                    <rect x="30" y="55" width="40" height="8"/>
+                </g>
+                <g id="icon-code-window" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="10" y="20" width="80" height="60" rx="4"/>
+                    <line x1="10" y1="40" x2="90" y2="40"/>
+                    <circle cx="20" cy="30" r="3" fill="currentColor" stroke="none"/>
+                    <circle cx="30" cy="30" r="3" fill="currentColor" stroke="none"/>
+                    <circle cx="40" cy="30" r="3" fill="currentColor" stroke="none"/>
+                    <path d="M20 55 L30 65 L20 75 M40 75 L60 75"/>
+                </g>
+                <g id="icon-brackets" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M40 20 C25 20 25 40 10 50 C25 60 25 80 40 80 M60 20 C75 20 75 40 90 50 C75 60 75 80 60 80"/>
+                </g>
+                <g id="icon-tags" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M35 30 L15 50 L35 70 M65 30 L85 50 L65 70 M60 20 L40 80"/>
+                </g>
+                <g id="icon-notebook" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="25" y="15" width="50" height="70" rx="3"/>
+                    <line x1="15" y1="25" x2="25" y2="25"/>
+                    <line x1="15" y1="45" x2="25" y2="45"/>
+                    <line x1="15" y1="65" x2="25" y2="65"/>
+                    <line x1="35" y1="35" x2="65" y2="35"/>
+                    <line x1="35" y1="50" x2="65" y2="50"/>
+                    <line x1="35" y1="65" x2="55" y2="65"/>
+                </g>
+                <g id="icon-pencil" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M75 15 L85 25 L35 75 L20 80 L25 65 Z"/>
+                    <line x1="65" y1="25" x2="75" y2="35"/>
+                </g>
+                <g id="icon-lightbulb" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M35 35 C35 25 42 15 50 15 C58 15 65 25 65 35 C65 45 55 50 55 60 L45 60 C45 50 35 45 35 35 Z"/>
+                    <line x1="45" y1="70" x2="55" y2="70"/>
+                    <line x1="48" y1="80" x2="52" y2="80"/>
+                    <line x1="50" y1="5" x2="50" y2="10"/>
+                </g>
+                <g id="icon-nodes" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="20" cy="50" r="6"/>
+                    <circle cx="50" cy="20" r="6"/>
+                    <circle cx="80" cy="40" r="6"/>
+                    <circle cx="60" cy="80" r="6"/>
+                    <circle cx="30" cy="85" r="6"/>
+                    <line x1="25" y1="45" x2="45" y2="25"/>
+                    <line x1="55" y1="25" x2="75" y2="37"/>
+                    <line x1="75" y1="45" x2="64" y2="75"/>
+                    <line x1="54" y1="82" x2="36" y2="84"/>
+                    <line x1="24" y1="80" x2="21" y2="56"/>
+                </g>
+                <g id="icon-graph" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="20" y1="80" x2="80" y2="80"/>
+                    <line x1="20" y1="80" x2="20" y2="20"/>
+                    <path d="M20 70 L40 50 L60 60 L80 20"/>
+                    <polygon points="75,20 85,25 80,15" fill="currentColor" stroke="none"/>
+                </g>
+                <g id="icon-paper" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M30 15 L55 15 L70 30 L70 85 L30 85 Z"/>
+                    <line x1="55" y1="15" x2="55" y2="30"/>
+                    <line x1="55" y1="30" x2="70" y2="30"/>
+                    <line x1="40" y1="50" x2="60" y2="50"/>
+                    <line x1="40" y1="65" x2="50" y2="65"/>
+                </g>
+                <g id="icon-folder" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 80 L85 80 L85 35 L50 35 L40 25 L15 25 Z"/>
+                    <line x1="15" y1="35" x2="85" y2="35"/>
+                </g>
+                <g id="icon-handshake" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 60 L40 40 L60 60 L40 80 Z"/>
+                    <path d="M80 60 L60 40 L40 60 L60 80 Z"/>
+                    <path d="M40 40 C45 30 55 30 60 40"/>
+                    <path d="M40 80 C45 90 55 90 60 80"/>
+                </g>
+            </defs>
+        </svg>
+
+        <!-- Scattered background elements (3-6% opacity) -->
+        <!-- Hero section -->
+        <svg class="bg-svg icon-md" style="top: 15vh; left: 8vw; transform: rotate(-15deg);"><use href="#icon-laptop"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 25vh; right: 12vw; transform: rotate(10deg);"><use href="#icon-tags"/></svg>
+        <svg class="bg-svg icon-md" style="top: 35vh; left: 18vw; transform: rotate(5deg);"><use href="#icon-keyboard"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 45vh; right: 18vw; transform: rotate(-20deg);"><use href="#icon-brackets"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 60vh; left: 10vw; transform: rotate(15deg);"><use href="#icon-code-window"/></svg>
+        
+        <!-- About section -->
+        <svg class="bg-svg icon-md" style="top: 85vh; right: 8vw; transform: rotate(-10deg);"><use href="#icon-notebook"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 100vh; left: 12vw; transform: rotate(20deg);"><use href="#icon-lightbulb"/></svg>
+        <svg class="bg-svg icon-md" style="top: 115vh; right: 15vw; transform: rotate(-5deg);"><use href="#icon-paper"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 125vh; left: 8vw; transform: rotate(15deg);"><use href="#icon-pencil"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 140vh; right: 10vw; transform: rotate(-15deg);"><use href="#icon-notebook"/></svg>
+
+        <!-- Skills section -->
+        <svg class="bg-svg icon-md" style="top: 160vh; left: 15vw; transform: rotate(5deg);"><use href="#icon-nodes"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 175vh; right: 8vw; transform: rotate(-10deg);"><use href="#icon-brackets"/></svg>
+        <svg class="bg-svg icon-md" style="top: 190vh; left: 8vw; transform: rotate(15deg);"><use href="#icon-keyboard"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 215vh; right: 18vw; transform: rotate(-5deg);"><use href="#icon-tags"/></svg>
+        <svg class="bg-svg icon-md" style="top: 230vh; left: 12vw; transform: rotate(10deg);"><use href="#icon-laptop"/></svg>
+        
+        <!-- Experience / Projects -->
+        <svg class="bg-svg icon-md" style="top: 260vh; right: 12vw; transform: rotate(-15deg);"><use href="#icon-notebook"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 285vh; left: 8vw; transform: rotate(20deg);"><use href="#icon-paper"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 300vh; right: 18vw; transform: rotate(-5deg);"><use href="#icon-pencil"/></svg>
+        <svg class="bg-svg icon-md" style="top: 320vh; left: 10vw; transform: rotate(10deg);"><use href="#icon-handshake"/></svg>
+        <svg class="bg-svg icon-md" style="top: 340vh; right: 8vw; transform: rotate(-10deg);"><use href="#icon-folder"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 360vh; left: 18vw; transform: rotate(15deg);"><use href="#icon-code-window"/></svg>
+        
+        <!-- Education / Achievements -->
+        <svg class="bg-svg icon-md" style="top: 380vh; right: 12vw; transform: rotate(-5deg);"><use href="#icon-notebook"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 400vh; left: 15vw; transform: rotate(25deg);"><use href="#icon-lightbulb"/></svg>
+        <svg class="bg-svg icon-md" style="top: 430vh; right: 10vw; transform: rotate(-15deg);"><use href="#icon-graph"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 460vh; left: 8vw; transform: rotate(10deg);"><use href="#icon-pencil"/></svg>
+        <svg class="bg-svg icon-md" style="top: 490vh; right: 18vw; transform: rotate(-5deg);"><use href="#icon-paper"/></svg>
+
+        <!-- Certificates / Contact -->
+        <svg class="bg-svg icon-sm" style="top: 520vh; left: 12vw; transform: rotate(15deg);"><use href="#icon-nodes"/></svg>
+        <svg class="bg-svg icon-md" style="top: 550vh; right: 8vw; transform: rotate(-10deg);"><use href="#icon-folder"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 580vh; left: 10vw; transform: rotate(20deg);"><use href="#icon-tags"/></svg>
+        
+        <!-- Lower Experience / Projects continuation -->
+        <svg class="bg-svg icon-md" style="top: 610vh; right: 15vw; transform: rotate(-5deg);"><use href="#icon-notebook"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 640vh; left: 18vw; transform: rotate(10deg);"><use href="#icon-pencil"/></svg>
+        <svg class="bg-svg icon-md" style="top: 670vh; right: 10vw; transform: rotate(-15deg);"><use href="#icon-handshake"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 700vh; left: 12vw; transform: rotate(25deg);"><use href="#icon-code-window"/></svg>
+        <svg class="bg-svg icon-md" style="top: 730vh; right: 15vw; transform: rotate(-10deg);"><use href="#icon-keyboard"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 760vh; left: 8vw; transform: rotate(15deg);"><use href="#icon-brackets"/></svg>
+
+        <!-- Lower Education / Achievements -->
+        <svg class="bg-svg icon-md" style="top: 790vh; right: 10vw; transform: rotate(-5deg);"><use href="#icon-laptop"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 820vh; left: 15vw; transform: rotate(20deg);"><use href="#icon-nodes"/></svg>
+        <svg class="bg-svg icon-md" style="top: 850vh; right: 18vw; transform: rotate(-15deg);"><use href="#icon-graph"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 880vh; left: 5vw; transform: rotate(10deg);"><use href="#icon-pencil"/></svg>
+        <svg class="bg-svg icon-md" style="top: 910vh; right: 12vw; transform: rotate(-10deg);"><use href="#icon-paper"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 940vh; left: 10vw; transform: rotate(15deg);"><use href="#icon-lightbulb"/></svg>
+
+        <!-- Lower Certificates / Contact -->
+        <svg class="bg-svg icon-md" style="top: 970vh; right: 8vw; transform: rotate(-5deg);"><use href="#icon-folder"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 1000vh; left: 18vw; transform: rotate(25deg);"><use href="#icon-tags"/></svg>
+        <svg class="bg-svg icon-md" style="top: 1030vh; right: 15vw; transform: rotate(-15deg);"><use href="#icon-notebook"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 1060vh; left: 12vw; transform: rotate(10deg);"><use href="#icon-handshake"/></svg>
+        <svg class="bg-svg icon-md" style="top: 1090vh; right: 10vw; transform: rotate(-10deg);"><use href="#icon-keyboard"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 1120vh; left: 5vw; transform: rotate(20deg);"><use href="#icon-nodes"/></svg>
+
+        <!-- Footer approach -->
+        <svg class="bg-svg icon-md" style="top: 1150vh; right: 18vw; transform: rotate(-5deg);"><use href="#icon-laptop"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 1180vh; left: 10vw; transform: rotate(15deg);"><use href="#icon-brackets"/></svg>
+        <svg class="bg-svg icon-md" style="top: 1210vh; right: 12vw; transform: rotate(-15deg);"><use href="#icon-graph"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 1240vh; left: 15vw; transform: rotate(10deg);"><use href="#icon-code-window"/></svg>
+        <svg class="bg-svg icon-md" style="top: 1270vh; right: 8vw; transform: rotate(-10deg);"><use href="#icon-paper"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 1300vh; left: 8vw; transform: rotate(25deg);"><use href="#icon-pencil"/></svg>
+        <svg class="bg-svg icon-md" style="top: 1330vh; right: 15vw; transform: rotate(-5deg);"><use href="#icon-folder"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 1360vh; left: 12vw; transform: rotate(20deg);"><use href="#icon-lightbulb"/></svg>
+        <svg class="bg-svg icon-md" style="top: 1390vh; right: 10vw; transform: rotate(-15deg);"><use href="#icon-notebook"/></svg>
+        <svg class="bg-svg icon-sm" style="top: 1420vh; left: 18vw; transform: rotate(10deg);"><use href="#icon-tags"/></svg>
+        <svg class="bg-svg icon-md" style="top: 1450vh; right: 5vw; transform: rotate(-10deg);"><use href="#icon-handshake"/></svg>
+    </div>
+
+    <!-- Theme Toggle -->
     <header id="header">
         <a href="#" class="logo">Sachin<span>Fulari</span></a>
         <div class="menu-toggle">
@@ -1913,13 +2261,8 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>Hi, I'm <span>Sachin Fulari</span></h1>
-            <h3>Computer Science and Engineering Student</h3>
-            <p>Passionate about leveraging technology to build impactful software solutions, with expertise in
-                full-stack development and data structures. Currently pursuing my Bachelor's degree in Computer
-                Science and Engineering with a focus on intelligent systems and scalable web applications. Enthusiastic
-                about solving real-world problems through code and continuous learning.
-
-            </p>
+            <h3>Software Developer</h3>
+            <p>Computer Science and Engineering graduate with hands-on experience in full-stack and web development through a 3-month professional internship. Skilled in Java, JavaScript, React.js, Node.js, Express.js, databases and Data Structures & Algorithms. Experienced in working on real-world company and client projects, building responsive interfaces, backend functionality and API integrations.</p>
             <a href="#contact" class="btn">Get In Touch</a>
         </div>
         <div class="hero-image">
@@ -1949,14 +2292,9 @@
                 <img src="assets/My_img_La.jpg" alt="Sachin Fulari">
             </div>
             <div class="about-text">
-                <h3>Computer Science and Engineer.</h3>
-                <p>I'm a dedicated computer science engineering student with a passion for building innovative software
-                    solutions and solving real-world problems through technology. My academic journey has equipped me
-                    with strong programming skills, logical thinking, and a solid foundation in data structures,
-                    algorithms, and full-stack development.</p>
-                <p>Beyond academics, I'm actively involved in projects focusing on web development, and
-                    system design. I enjoy working in collaborative environments and constantly seek challenges that
-                    help me grow as a developer and problem-solver.</p>
+                <h3>Building Practical Software Solutions</h3>
+                <p>I'm a Computer Science and Engineering graduate with a strong foundation in software development, data structures and algorithms. I have hands-on experience building web applications and working on real-world company and client projects through my professional internship.</p>
+                <p>My experience includes frontend and backend development, responsive UI, API integration, authentication, databases and modern web technologies. I enjoy solving practical problems through code and continuously expanding my skills as a developer.</p>
 
                 <div class="about-info">
                     <div class="info-item">
@@ -1968,15 +2306,15 @@
                         <p>sachinfulari529@gmail.com</p>
                     </div>
                     <div class="info-item">
-                        <span>University:</span>
-                        <p>DBatu University Lonere, Raigad</p>
+                        <span>College:</span>
+                        <p>N.K.Orchid College Of Engg.&Tech, Solapur</p>
                     </div>
                     <div class="info-item">
                         <span>Degree:</span>
-                        <p>B.Tech Computer Science and Enginnering</p>
+                        <p>B.Tech Computer Science and Engineering</p>
                     </div>
                 </div>
-                <a href="https://drive.google.com/file/d/1ia9qA1p5NaMym-9EndEmaqdeuaU-DLZx/view?usp=drive_link"
+                <a href="https://drive.google.com/file/d/1-ZnQ_y5pyOuNdzk0ypIXwWl3O5-dSypY/view?usp=sharing"
                     class="download-cv">Download Resume</a>
             </div>
         </div>
@@ -2026,7 +2364,7 @@
                 <div class="skill-item">
                     <div class="skill-info">
                         <div class="skill-name"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2560px-Tailwind_CSS_Logo.svg.png"
+                                src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
                                 alt="Tailwind CSS"> Tailwind CSS</div>
                         <div class="skill-percent">88%</div>
                     </div>
@@ -2295,6 +2633,29 @@
                         <span class="experience-tag">JavaScript</span>
                         <span class="experience-tag">React.js</span>
                         <span class="experience-tag">PHP</span>
+                    </div>
+
+                    <div class="experience-project" style="margin-top: 20px;">
+                        <h5>Project: <span class="experience-project-name">ERP Software</span></h5>
+                        <p>Worked on SAP & ERP software-related development during the internship, contributing to software functionality and UI/development tasks based on project requirements.</p>
+                    </div>
+                    
+                    <div class="experience-tags">
+                        <span class="experience-tag">ReactJS</span>
+                        <span class="experience-tag">ExpressJS</span>
+                        <span class="experience-tag">NodeJS</span>
+                        <span class="experience-tag">MongoDB</span>
+                    </div>
+
+                    <div class="experience-project" style="margin-top: 20px;">
+                        <h5>Project: <span class="experience-project-name">Rough Note Company Website</span></h5>
+                        <p>Contributed to the development of Rough Note's interactive company website, working on responsive UI, interactive visual effects, animations, visual assets, and performance improvements.</p>
+                    </div>
+                    
+                    <div class="experience-tags">
+                        <span class="experience-tag">HTML</span>
+                        <span class="experience-tag">CSS</span>
+                        <span class="experience-tag">JavaScript</span>
                     </div>
                 </div>
             </div>
@@ -2618,7 +2979,7 @@
     <footer>
         <div class="footer-content">
             <h2>Sachin <span>Fulari</span></h2>
-            <p>Computer Science and Engineering Student | Innovator | Problem Solver</p>
+            <p>Web Developer | Software Developer | Full-Stack Developer</p>
             <div class="footer-social">
                 <a href="https://www.linkedin.com/in/sachin-fulari-294372289/"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://github.com/Sachin-07-F"><i class="fab fa-github"></i></a>
@@ -2631,7 +2992,7 @@
                 </a> <a href="https://www.instagram.com/n_i_h_c_a_s_07?igsh=OW90ajE4NHY3bXVi"><i
                         class="fab fa-instagram"></i></a>
             </div>
-            <p class="copyright">&copy; 2023 Sachin Fulari. All Rights Reserved.</p>
+            <p class="copyright">&copy; 2026 Sachin Fulari. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -2682,7 +3043,7 @@
 
         // Animate elements when scrolling
         const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.about-image, .about-text, .skill-category, .project-card, .timeline-item, .achievement-card, .certificate-card, .contact-info, .contact-form');
+            const elements = document.querySelectorAll('.about-image, .about-text, .skill-category, .experience-card, .project-card, .timeline-item, .achievement-card, .certificate-card, .contact-info, .contact-form');
 
             elements.forEach(element => {
                 const elementPosition = element.getBoundingClientRect().top;
